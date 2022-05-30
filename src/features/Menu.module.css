@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    flex: 1 1 100%;
+    min-width: 0;
+}
+
+.nav {
+    display: flex;
+}
+
+.maincont {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    padding: 1rem;
+    width: 100%;
+}
+
