@@ -28,6 +28,7 @@ const Footer = styled.footer`
   margin-bottom: 4rem;
   align-items: center;
   color: white;
+  background-color: #015b01;
 `;
 
 function SideMenu({ children }) {
@@ -50,7 +51,7 @@ SideMenu.defaultProps = {
 };
 
 SideMenu.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.any,
 };
 
 export default SideMenu;

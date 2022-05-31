@@ -79,7 +79,7 @@ MenuItem.propTypes = {
   children: PropTypes.node,
   icon: PropTypes.string,
   onClick: PropTypes.func,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.any.isRequired,
   to: PropTypes.string,
 };
 

@@ -6,12 +6,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
-import { IoIosContact, IoMdListBox } from 'react-icons/io';
+import { IoIosContact, IoMdListBox, IoMdSwitch } from 'react-icons/io';
+import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import styled from 'styled-components';
 import img from '../../common/linechart.jpeg';
 import myBalance, { handleAdd, transactList } from '../homeComponent/Calculator';
 import styles from '../Menu.module.css';
-import NavBar from "../NavBar";
+import NavBar from '../NavBar';
 
 const Customwrap = styled.div`
     background-color: rgb(211, 206, 206);
@@ -107,6 +108,7 @@ function Home() {
     const [settleId, setSettleId] = useState('');
     let addAmount = useRef('0');
     let addReason = useRef('');
+    const [mode, setMode] = useState(true);
 
     /* To update the user on adding a new transaction */
     const userChange = (user) => {
@@ -140,14 +142,20 @@ function Home() {
         console.log(transactList);
     }
 
+    const toggleBg = () => {
+        setMode(!mode);
+    }
+
     return (
-        <>
+        <><div className={mode ? styles.darkBg : styles.lightBg}>
             <div className={styles.wrapper}>
                 <div className={styles.nav}>
                     <NavBar />
                 </div>
                 <div className={styles.maincont}>
                     <Container style={{ textAlign: 'center' }}>
+                        <Row> <div className={styles.modehead} onClick={toggleBg}>Switch Mode
+                            <span>{mode ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}</span></div></Row>
                         <Row style={{ paddingTop: '2rem' }}>
                             <Col>
                                 <Row>
@@ -186,7 +194,6 @@ function Home() {
                                         <tbody>
                                             {oweList && oweList.map(user =>
                                                 <tr key={user.name}>
-
                                                     <td><IoIosContact size={'1.5em'} />  {user.name}
                                                         <span style={{ color: 'red' }}>You Owe {user.owe}</span></td>
                                                 </tr>
@@ -228,7 +235,7 @@ function Home() {
                     </Container>
                 </div>
             </div>
-
+        </div>
             <>
                 <Modal show={showAdd} onHide={handleClose}>
                     <Modal.Header >

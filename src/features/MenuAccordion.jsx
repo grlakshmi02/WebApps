@@ -57,7 +57,7 @@ MenuAccordion.propTypes = {
   children: PropTypes.node,
   icon: PropTypes.string,
   open: PropTypes.bool,
-  title: PropTypes.string,
+  title: PropTypes.any,
   name: PropTypes.string,
 };
 

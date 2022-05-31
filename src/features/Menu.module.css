@@ -1,8 +1,15 @@
+.darkBg {
+    background-color: black;
+}
+
+.lightBg  {
+    background-color: #F0F2F8;
+}
+
 .wrapper {
     display: flex;
     flex: 1 1 100%;
     min-width: 0;
-    background-color: #F0F2F8;
 }
 
 .nav {
@@ -15,4 +22,13 @@
     margin: 1rem;
     padding: 2rem 1rem;
     width: 100%;
+}
+
+.modehead {
+    background-color: rgb(211,206,206);
+    width: 100%;
+    height: 2rem;
+    border-radius: 10px;
+    padding-top: 0.3rem;
+    cursor: pointer;
 }

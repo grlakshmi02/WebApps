@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Login.module.css'
@@ -20,19 +20,31 @@ function Login() {
     let signupemail = useRef();
     let signuppassword = useRef();
     let navigate = useNavigate();
+    const [signupWarning, setsignupWarning] = useState('');
 
-    const handleLoginSubmit = () => {
-
-        localStorage.setItem('transact', JSON.stringify(users));
-        localStorage.setItem('contacts', JSON.stringify(contact));
-
-        navigate('/home');
-        console.log('form submitted login');
+    // Test login user credentials are stored in browser memory for login validation
+    let loginUser = {
+        userId: 'test@gmail.com',
+        password: 'test'
+    }
+    localStorage.setItem('loginUser', JSON.stringify(loginUser));
+    
+    // Login validation of user
+    const handleLoginSubmit = (event) => {
+        event.preventDefault();
+        if (loginUser.userId === loginemail.current.value && loginUser.password ===  loginpassword.current.value) {
+            localStorage.setItem('transact', JSON.stringify(users));
+            localStorage.setItem('contacts', JSON.stringify(contact));
+            navigate('/home');
+        } else {
+            setsignupWarning(`No user unidentified, please sign up`);
+        }
     }
 
+    // Handle sign up and redirect to home page
     const handleSignupSubmit = () => {
+        localStorage.setItem('loginUser', JSON.stringify({userId:signupemail.current.value,password:signuppassword.current.value}));
         navigate('/home');
-        console.log('form submitted signup');
     }
 
     return (
@@ -51,6 +63,8 @@ function Login() {
                                                 aria-label="Username"
                                                 aria-describedby="basic-addon1"
                                                 ref={loginemail}
+                                                type="email"
+                                                required
                                             />
                                         </InputGroup>
                                         {/*  <input className={styles.inputs} type='text' ref={loginemail} /> */}
@@ -64,12 +78,14 @@ function Login() {
                                                 aria-describedby="basic-addon1"
                                                 ref={loginpassword}
                                                 type="password"
+                                                required
                                             />
                                         </InputGroup>
                                         {/* <input className={styles.inputs} type='text' ref={loginpassword} /> */}
                                     </div>
                                     <Button variant="success" type='submit' size="lg" 
                                     style={{ width: '90%', marginLeft: '1rem'}}>Log In</Button>
+                                    <p className={styles.warningtext}>{signupWarning}</p>
                             </div>
                         </form>
                     </Col>
@@ -86,6 +102,7 @@ function Login() {
                                                 aria-label="Username"
                                                 aria-describedby="basic-addon1"
                                                 ref={signupname}
+                                                required
                                             />
                                         </InputGroup>
                                     </div>
@@ -98,6 +115,8 @@ function Login() {
                                                 aria-label="Email address"
                                                 aria-describedby="basic-addon1"
                                                 ref={signupemail}
+                                                type="email"
+                                                required
                                             />
                                         </InputGroup>
                                     </div>
@@ -111,6 +130,7 @@ function Login() {
                                                 aria-describedby="basic-addon1"
                                                 ref={signuppassword}
                                                 type="password"
+                                                required
                                             />
                                         </InputGroup>
                                     </div>
