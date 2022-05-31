@@ -13,6 +13,7 @@ function Invite(params) {
                 <p> This is Invite page, work in progress... <ImWarning /></p>
             </div>
         </div>
+
     );
 }
 

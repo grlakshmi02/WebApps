@@ -3,7 +3,6 @@ import Groups from './features/groupComponent/Groups';
 import Home from './features/homeComponent/Home';
 import Invite from './features/invitecomponent/Invite';
 import Login from './features/loginComponent/Login';
-import Logout from './features/logoutcomponent/Logout';
 import Settings from './features/settingsComponent/Settings';
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
           <Route path='/groups' element={<Groups />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/invite' element={<Invite />} />
-          <Route path='/logout' element={<Logout />} />
         </Routes>
 
       </BrowserRouter>

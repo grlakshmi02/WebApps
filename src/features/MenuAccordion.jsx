@@ -19,17 +19,6 @@ const Collapsible = styled.div`
   }
 `;
 
-const Indicator = styled.span`
-  background-color: #363d4a;
-  border-radius: 50%;
-  position: absolute;
-  right: 1.25rem;
-  top: 50%;
-  transition: transform 0.4s;
-  font-size: 0.75rem;
-  transform: ${(props) => (props.open ? 'rotate(0deg)' : 'rotate(-90deg)')};
-`;
-
 function MenuAccordion({
   children, icon, open, title, name
 }) {
@@ -45,7 +34,6 @@ function MenuAccordion({
   return (
     <>
       <MenuItem icon={icon} name={name} title={title} onClick={events.onToggleButtonClick}>
-        <Indicator open={isOpen} className="lnr lnr-chevron-down-circle" />
       </MenuItem>
 
       <Collapsible>

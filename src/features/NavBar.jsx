@@ -9,7 +9,7 @@ import SideMenu from './SideMenu';
 function NavBar() {
     return (
         <SideMenu>
-            <MenuAccordion open name={'Lend And Borrow'} title={<MdLoop />}>
+            <MenuAccordion open name={'Lend And Borrow'} title={<MdLoop size={'2em'}/>}>
                 <MenuItem
                     title={<RiHome4Line />}
                     name="Home"
@@ -33,7 +33,7 @@ function NavBar() {
                 <MenuItem
                     name='Logout'
                     title={<BiLogOut />}
-                    to="/logout"
+                    to="/"
                 />
             </MenuAccordion>
         </SideMenu>

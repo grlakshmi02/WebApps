@@ -5,19 +5,27 @@
     padding: 8rem;
 }
 
+.outlining {
+    padding: 4rem 2rem;
+}
+
 .loginbg {
-    background-color:bisque;
+    background-color: #e7fadf;
+    height: 60vh;
+    box-shadow: -10px -6px 20px 0px;
+    border-radius: 30px;
 }
-
-.divider {
-
-}
-
 
 .singupbg {
-    background-color:burlywood;
+    font-weight: 500;
+    color: black;
+    height: 60vh;
+    background-color: #e7fadf;
+    opacity: 0.8;
+    background: repeating-linear-gradient(45deg, #ccedbf, #e7fadf 5px, #dce4d9 5px, #e2ffd6 25px);
+    box-shadow: 10px 6px 20px 0px;
+    border-radius: 30px;
 }
-
 
 .inputs {
     width: 60%;
@@ -26,4 +34,10 @@
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+.heading {
+    justify-content: center;
+    color: green;
+    font-family: cursive;
 }

@@ -1,0 +1,26 @@
+{
+    "contactList": [{
+        "id": 1,
+        "name": "Dinesh"
+    },
+    {
+        "id": 2,
+        "name": "Kalyan"
+    },
+    {
+        "id": 3,
+        "name": "Ram"
+    },
+    {
+        "id": 4,
+        "name": "Kiran"
+    },
+    {
+        "id": 5,
+        "name": "Sathwik"
+    },
+    {
+        "id": 6,
+        "name": "Charan"
+    }]
+}
